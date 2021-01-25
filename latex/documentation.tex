@@ -1,0 +1,330 @@
+
+    \documentclass[a4paper]{report}
+    \pagestyle{plain}
+    %\usepackage{amsmath}
+    %\usepackage{amssymb}
+    %\usepackage{amsthm}
+    %\usepackage{fancyvrb}
+    \usepackage[usenames]{color}
+    \usepackage[linkcolor=black,citecolor=black]{hyperref}
+    \usepackage{makeidx}
+    \makeindex
+
+    \setlength{\parindent}{0cm}
+    \addtolength{\parskip}{0.5em}
+    %\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+    \begin{document}
+    \input{defun.tex}
+
+    \title{ATDOC example project}
+    %\date{}
+    \maketitle
+
+    \tableofcontents
+    \newpage
+
+    
+    \chapter{The example/app package}
+    This is docstring for the \textbf{example/app} package.
+
+
+                   The package contains a function which does it's job by
+                   applying transformation to the first and second arguments:
+
+                   
+
+    \rule{\linewidth}{0.1mm}
+    
+    \label{example/app__fun__foo}
+    \begin{defun}[Function]
+    foo first &key (other 100500)
+
+
+    
+    \bigskip
+    \textsc{Arguments}
+
+first
+	--- Just a first argument.
+
+other
+	--- Optional keyword argument. Default is 100500.
+
+
+
+
+    
+    \bigskip
+    \textsc{Return Values}
+
+A string with first and other concatenated.
+
+
+	
+    \bigskip
+    \textsc{Details}
+
+This is example function.         
+
+   Internally it calls \hyperref[example/utils__fun__do-the-job]{\texttt{example/utils:do-the-job}}
+  
+   to do the real job.
+
+
+   Note, that the link above is broken, but Coo does not warn us when building the docs.
+   Sphinx issues a warning inn such case.
+
+
+      
+    \bigskip
+    \textsc{See also}
+
+
+	
+    \begin{itemize}
+    
+	  
+    \item
+    \hyperref[example/utils__fun__do-the-job]{example/utils:do-the-job}
+    
+	
+    \end{itemize}
+  
+      
+
+
+    
+    \end{defun}
+  
+  
+
+
+                   When you mention a function like that, it is included into
+                   the package description and removed from the                   "Other functions..." section
+    \chapter{The example/class package}
+    This package demonstrates how ATDOC displays classes and generic functions.
+
+
+                   The key consept is user class:
+
+                   
+
+    \rule{\linewidth}{0.1mm}
+    
+    \label{example/class__class__user}
+    \begin{defun}[Class]
+    user
+
+
+      
+    \bigskip
+    \textsc{Superclasses}
+
+\color[rgb]{0.5,0.5,0.5}common-lisp:standard-object\color[rgb]{0,0,0}, \color[rgb]{0.5,0.5,0.5}sb-pcl::slot-object\color[rgb]{0,0,0}, \color[rgb]{0.5,0.5,0.5}common-lisp:t\color[rgb]{0,0,0}
+
+
+      
+    \bigskip
+    \textsc{Documented Subclasses}
+
+\hyperref[example/class__class__admin]{
+	  admin
+	}
+      , \hyperref[example/class__class__non-documented-user]{
+	  non-documented-user
+	}
+      
+
+
+	
+    \bigskip
+    \textsc{Direct Slots}
+
+email --- Correct email address.
+
+last-login-at --- 
+
+name --- A full username.
+
+
+
+
+	
+    \bigskip
+    \textsc{Details}
+
+All users in the system have this class.
+
+
+Last login slot is updated automatically.
+
+\textbf{NOTE:} "Documented Subclasses" section contains only classes which are:
+
+
+    
+    \end{defun}
+  
+  
+
+
+                   It is possible to check if user has admin privileges, using this function:
+
+                   
+
+    \rule{\linewidth}{0.1mm}
+    
+    \label{example/class__fun__is-admin}
+    \begin{defun}[Function]
+    is-admin user
+
+
+	
+    \bigskip
+    \textsc{Details}
+
+Returns t if user can modify the system.
+
+
+    
+    \end{defun}
+  
+  
+
+                   Right now, \hyperref[example/class__fun__is-admin]{\texttt{is-admin}}
+   returns \texttt{t} only for objects of \hyperref[example/class__class__admin]{\texttt{admin}}
+  :
+
+                   
+
+    \rule{\linewidth}{0.1mm}
+    
+    \label{example/class__class__admin}
+    \begin{defun}[Class]
+    admin
+
+
+      
+    \bigskip
+    \textsc{Superclasses}
+
+\hyperref[example/class__class__user]{
+	  user
+	}
+      , \color[rgb]{0.5,0.5,0.5}common-lisp:standard-object\color[rgb]{0,0,0}, \color[rgb]{0.5,0.5,0.5}sb-pcl::slot-object\color[rgb]{0,0,0}, \color[rgb]{0.5,0.5,0.5}common-lisp:t\color[rgb]{0,0,0}
+
+
+      
+    \bigskip
+    \textsc{Documented Subclasses}
+
+
+	    None
+	  
+
+
+	
+    \bigskip
+    \textsc{Direct Slots}
+
+
+	      None
+	    
+
+
+	
+    \bigskip
+    \textsc{Details}
+
+Admins should have additional priveleges.
+
+
+    
+    \end{defun}
+  
+  
+      \section{Other classes}
+      
+
+    \rule{\linewidth}{0.1mm}
+    
+    \label{example/class__class__non-documented-user}
+    \begin{defun}[Class]
+    non-documented-user
+
+
+      
+    \bigskip
+    \textsc{Superclasses}
+
+\hyperref[example/class__class__user]{
+	  user
+	}
+      , \color[rgb]{0.5,0.5,0.5}common-lisp:standard-object\color[rgb]{0,0,0}, \color[rgb]{0.5,0.5,0.5}sb-pcl::slot-object\color[rgb]{0,0,0}, \color[rgb]{0.5,0.5,0.5}common-lisp:t\color[rgb]{0,0,0}
+
+
+      
+    \bigskip
+    \textsc{Documented Subclasses}
+
+
+	    None
+	  
+
+
+	
+    \bigskip
+    \textsc{Direct Slots}
+
+
+	      None
+	    
+
+
+	No documentation string.  Possibly unimplemented or incomplete.
+	
+
+
+    
+    \end{defun}
+  
+  
+    \chapter{The example/utils package}
+    The utils package.
+
+This package's docstring is not mention any functions via \texttt{aboutfun} or \texttt{aboutclass} tags.
+
+Hence, the only exported function \hyperref[example/utils__fun__do-the-job]{\texttt{do-the-job}}
+   will be show in a separate
+section "Other functions in example/utils".
+      \section{Other functions}
+      
+
+    \rule{\linewidth}{0.1mm}
+    
+    \label{example/utils__fun__do-the-job}
+    \begin{defun}[Function]
+    do-the-job first second
+
+
+	
+    \bigskip
+    \textsc{Details}
+
+The function does the job.
+
+It concatenates first and second arguments
+calling internal function concat.
+
+
+On this multiline we'll check how does documentationsystem processes docstrings.
+
+
+    
+    \end{defun}
+  
+  
+
+    \printindex
+    \end{document}
+  

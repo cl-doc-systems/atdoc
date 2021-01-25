@@ -1,0 +1,13 @@
+\begin{theindex}
+
+  \item {admin }{\cf admin\ \rm \lowercase {Class}}, \hyperpage{4}
+  \item {do-the-job }{\cf do-the-job\ \rm \lowercase {Function}}, 
+		\hyperpage{5}
+  \item {foo }{\cf foo\ \rm \lowercase {Function}}, \hyperpage{2}
+  \item {is-admin }{\cf is-admin\ \rm \lowercase {Function}}, 
+		\hyperpage{4}
+  \item {non-documented-user }{\cf non-documented-user\ \rm \lowercase {Class}}, 
+		\hyperpage{4}
+  \item {user }{\cf user\ \rm \lowercase {Class}}, \hyperpage{3}
+
+\end{theindex}
